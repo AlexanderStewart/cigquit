@@ -1,0 +1,40 @@
+$red: #d9534f;
+$blue: #3d405b;
+$black: #212529;
+
+.header {
+  color: $red;
+  font-size: 2rem !important;
+}
+
+.vertical-space {
+  height: 140px;
+}
+
+.horizontal-space {
+  width: 40px;
+}
+
+.home-card {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.login-sign-up-container {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 20px;
+  margin-right: 8px;
+}
+
+.info-home-card {
+  width: 18rem;
+  margin: 0.5rem;
+  color: white;
+}
+
+@media (min-width: 340px) {
+  .login-sign-up-container {
+    padding: 0px;
+  }
+}

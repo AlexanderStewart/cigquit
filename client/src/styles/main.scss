@@ -1,0 +1,36 @@
+$red: #d9534f;
+$blue: #3d405b;
+$black: #212529;
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-b {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-width {
+  width: 362px;
+  padding: 10px;
+}
+
+@media (min-width: 340px) {
+  .main-width {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 664px) {
+  .main-width {
+    width: 664px;
+  }
+}

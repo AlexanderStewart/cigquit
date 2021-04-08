@@ -1,0 +1,28 @@
+$red: #d9534f;
+$blue: #3d405b;
+$black: #212529;
+
+.header-signup {
+  color: $red;
+  font-size: 2rem !important;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container input {
+  margin-bottom: 20px;
+  margin: 20px;
+  padding: 10px;
+}
+
+.no-style-link {
+  color: white;
+  text-decoration: "none";
+}
+
+.signup-alert {
+  margin-top: 10px;
+}

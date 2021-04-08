@@ -1,0 +1,46 @@
+$red: #d9534f;
+$blue: #3d405b;
+$black: #212529;
+
+.header-profile {
+  color: $red;
+  font-size: 2rem !important;
+}
+
+.wide-line {
+  height: 1px;
+  width: 100%;
+  background-color: #ccc;
+  margin: 30px 0;
+}
+
+.profile-card {
+  width: 286px;
+  margin: 8px;
+}
+
+.profile-card-top-ones {
+  margin-top: 0px;
+}
+
+.profile-card-left-ones {
+  margin-left: 0px;
+}
+
+.profile-card-right-ones {
+  margin-right: 0px;
+}
+
+.profile-data {
+  margin-top: -10px;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.left-align {
+  text-align: left;
+  margin-left: 28px;
+}
