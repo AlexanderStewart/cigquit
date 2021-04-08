@@ -19,7 +19,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "client/build")));
 
 require("dotenv").config();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 // connecting to mongodb
 mongoose
