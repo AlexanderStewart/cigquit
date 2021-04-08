@@ -19,17 +19,14 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "client/build")));
 
 require("dotenv").config();
-const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 
 // connecting to mongodb
-const dbURI =
-  "mongodb+srv://" +
-  process.env.DB_USERNAME +
-  ":" +
-  process.env.DB_PASSWORD +
-  "@cluster0.6ycnu.mongodb.net/CigQuitDB?retryWrites=true&w=majority";
 mongoose
-  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("connected to MongoDB database!");
     app.listen(PORT, (err) => {
@@ -118,8 +115,6 @@ app.post("/api/signup", async function (req, res) {
 
     const id = result._id;
 
-    console.log(result._id);
-
     jwt.sign(
       { id: id },
       process.env.JWTSECRET,
@@ -172,9 +167,6 @@ app.post("/api/login", async function (req, res) {
     const email = user.email;
     const hashPassword = user.password;
 
-    console.log(plaintextPassword);
-    console.log(hashPassword);
-
     bcrypt.compare(plaintextPassword, hashPassword, function (err, worked) {
       if (err) throw err;
       if (worked) {
@@ -212,9 +204,6 @@ app.post("/api/stats", (req, res) => {
   const cigPerPack = req.body.cigPerPack;
   const moneyPerPack = req.body.moneyPerPack;
   const userId = req.body.userId;
-
-  console.log("userId: " + req.body.userId);
-  console.log("moneyPerPack: " + req.body.moneyPerPack);
 
   if (!quitDate) {
     return res.json({ message: "QUIT_DATE_EMPTY" });
