@@ -2,10 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "An app to track metrics based on your endeavor",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js",
-    "start:dev": "nodemon index.js",
+    "start": "node app.js",
+    "start:dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
