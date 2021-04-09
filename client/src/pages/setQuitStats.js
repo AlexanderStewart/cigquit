@@ -43,8 +43,6 @@ function SetQuitStats() {
       .then((response) => {
         const myMessage = response.data.message;
 
-        console.log(myMessage);
-
         if (myMessage === "SUCCESS") {
           context.updateStats({
             quitDate: quitDate,
@@ -104,7 +102,7 @@ function SetQuitStats() {
       <div className="center">
         <div className="main-width">
           <div className="login-sign-up-container">
-            <div className="custom-link" className="text-muted">
+            <div className="custom-link text-muted">
               <h6 onClick={logout}>Logout</h6>
             </div>
             <div className="horizontal-space"></div>

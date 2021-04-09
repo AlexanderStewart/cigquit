@@ -11,10 +11,12 @@ function Signup() {
   const history = useHistory();
 
   useEffect(() => {
+    let isMounted = true;
     const token = localStorage.getItem("token");
     if (token) {
       history.push("/profile");
     }
+    return () => { isMounted = false };
   }, []);
 
   const [email, setEmail] = useState("");

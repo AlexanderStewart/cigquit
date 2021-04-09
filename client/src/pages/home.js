@@ -9,11 +9,13 @@ function Home() {
   const [signedIn, setSignedIn] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
     const token = localStorage.getItem("token");
 
     if (token) {
       setSignedIn(true);
     }
+    return () => { isMounted = false };
   }, []);
 
   return (

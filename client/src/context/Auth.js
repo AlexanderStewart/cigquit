@@ -13,11 +13,13 @@ function Auth(props) {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
+    let isMounted = true;
     if (token) {
       validateToken();
     } else {
       history.push("/login");
     }
+    return () => { isMounted = false };
   }, []);
 
   const validateToken = async (e) => {
