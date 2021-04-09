@@ -73,7 +73,7 @@ function Home() {
                   </Card.Text>
                   <Button
                     variant="outline-info"
-                    href="https://github.com/AlexanderStewart/cig-quit"
+                    href="https://github.com/AlexanderStewart/cigquit"
                   >
                     GitHub repo
                   </Button>
