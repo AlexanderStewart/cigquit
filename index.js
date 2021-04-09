@@ -92,48 +92,52 @@ app.post("/api/signup", async function (req, res) {
   if (plaintextPassword.length < 6)
     return res.json({ message: "PASSWORD_SHORT" });
 
-  User.find({ email: email }, function (err, docs) {
-    if (docs.length) {
-      return res.json({ message: "ER_DUP_ENTRY" });
-    }
-  });
-
-  const hashedPassword = await bcrypt.hash(plaintextPassword, 10);
-
-  const user = new User({
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-    password: hashedPassword,
-  });
-
-  user.save().then((result, err) => {
-    if (err) {
-      console.log(err);
-      return res.json({ message: err });
-    }
-
-    const id = result._id;
-
-    jwt.sign(
-      { id: id },
-      process.env.JWTSECRET,
-      { expiresIn: 86400 },
-      (err, token) => {
-        if (err) throw err;
-        res.json({
-          message: "SUCCESS",
-          token,
-          user: {
-            id: id,
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-          },
-        });
+  User.find({ email: email })
+    .then(async function (docs) {
+      if (docs.length) {
+        return res.json({ message: "ER_DUP_ENTRY" });
       }
-    );
-  });
+
+      const hashedPassword = await bcrypt.hash(plaintextPassword, 10);
+
+      const user = new User({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: hashedPassword,
+      });
+
+      user.save().then((result, err) => {
+        if (err) {
+          console.log(err);
+          return res.json({ message: err });
+        }
+
+        const id = result._id;
+
+        jwt.sign(
+          { id: id },
+          process.env.JWTSECRET,
+          { expiresIn: 86400 },
+          (err, token) => {
+            if (err) throw err;
+            res.json({
+              message: "SUCCESS",
+              token,
+              user: {
+                id: id,
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+              },
+            });
+          }
+        );
+      });
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 });
 
 // Login post request. Links with client file login.js / Updated for MongoDB
