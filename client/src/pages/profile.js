@@ -56,8 +56,10 @@ function Profile() {
       <div className="center">
         <div className="main-width">
           <div className="login-sign-up-container">
-            <div className="custom-link text-muted">
-              <h6 onClick={logout}>Logout</h6>
+            <div className="custom-link">
+              <h6 className="text-muted" onClick={logout}>
+                Logout
+              </h6>
             </div>
             <div className="horizontal-space"></div>
             <h6>
