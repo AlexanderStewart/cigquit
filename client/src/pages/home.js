@@ -52,8 +52,8 @@ function Home() {
               </h6>
             </div>
           )}
-          <div className="wide-line"></div>
           <div className="center column">
+            <div className="wide-line"></div>
             <h1 className="header">CigQuit</h1>
             <div className="wide-line"></div>
             <div>
@@ -65,20 +65,6 @@ function Home() {
                     would have smoked had you not quit. Track how much money you
                     have saved. Become a healthier person.
                   </Card.Text>
-                </Card.Body>
-              </Card>
-
-              <Card className="home-card shadow border-0">
-                <Card.Body>
-                  <Card.Text>
-                    CigQuit is totally free to use. It is also open source!
-                  </Card.Text>
-                  <Button
-                    variant="outline-info"
-                    href="https://github.com/AlexanderStewart/cigquit"
-                  >
-                    GitHub repo
-                  </Button>
                 </Card.Body>
               </Card>
 
