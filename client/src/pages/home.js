@@ -81,6 +81,20 @@ function Home() {
                   </Button>
                 </Card.Body>
               </Card>
+
+              <Card className="home-card shadow border-0">
+                <Card.Body>
+                  <Card.Text>
+                    CigQuit is totally free to use. It is also open source!
+                  </Card.Text>
+                  <Button
+                    variant="outline-info"
+                    href="https://github.com/AlexanderStewart/cigquit"
+                  >
+                    GitHub repo
+                  </Button>
+                </Card.Body>
+              </Card>
             </div>
           </div>
         </div>
