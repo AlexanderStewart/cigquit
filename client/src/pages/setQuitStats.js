@@ -16,7 +16,7 @@ function SetQuitStats() {
   const history = useHistory();
   const context = useContext(UserContext);
 
-  const [longDate, setLongDate] = useState(new Date());
+  const [quitDate, setQuitDate] = useState(new Date());
   const [cigCount, setCigCount] = useState(null);
   const [cigPerPack, setCigPerPack] = useState("");
   const [moneyPerPack, setMoneyPerPack] = useState("");
@@ -31,7 +31,7 @@ function SetQuitStats() {
   };
 
   const submitStats = () => {
-    const quitDate = moment(longDate).format("YYYY-MM-DD").toString();
+    console.log(quitDate);
 
     Axios.post(`${API_HOST}/api/stats`, {
       quitDate: quitDate,
@@ -130,8 +130,11 @@ function SetQuitStats() {
               <Form.Label>Select the day you quit.</Form.Label>
               <div>
                 <DatePicker
-                  selected={longDate}
-                  onChange={(date) => setLongDate(date)}
+                  selected={quitDate}
+                  onChange={(date) => {
+                    setQuitDate(date);
+                    console.log(date);
+                  }}
                   className="form-control"
                 />
               </div>

@@ -35,6 +35,7 @@ function Profile() {
     showAlert = false;
 
     longQuitDate = moment(quitDate).format("dddd, MMMM Do YYYY");
+    console.log("longQuitDate: " + longQuitDate);
     daysElapsed = moment().diff(moment(quitDate), "days");
     cigAvoided = cigCount * moment().diff(moment(quitDate), "days");
     moneySaved =
