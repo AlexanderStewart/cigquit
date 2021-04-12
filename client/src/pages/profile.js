@@ -5,6 +5,7 @@ import { UserContext } from "../context/userProvider";
 import moment from "moment";
 
 import "../styles/main.scss";
+import "../styles/home.scss";
 import "../styles/profile.scss";
 import "../styles/setQuitStats.scss";
 
@@ -77,9 +78,10 @@ function Profile() {
             </Alert>
           )}
           <div className="column">
-            <h1 className="header-profile center">
-              {firstName} {lastName}
-            </h1>
+            <div className="center header-container">
+              <h1 className="header-profile header-a">{firstName}&nbsp;</h1>
+              <h1 className="header-profile header-b">{lastName}</h1>
+            </div>
             <h6 className="sub-header-profile center">
               Good for you for quitting! Here are your quit stats:
             </h6>

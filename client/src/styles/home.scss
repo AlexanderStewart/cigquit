@@ -2,9 +2,23 @@ $red: #d9534f;
 $blue: #3d405b;
 $black: #212529;
 
+.header-container {
+  clear: both;
+}
+
 .header {
   color: $red;
   font-size: 2rem !important;
+}
+
+.header-a {
+  float: left;
+  font-weight: normal;
+}
+
+.header-b {
+  float: right;
+  font-weight: 900;
 }
 
 .vertical-space {

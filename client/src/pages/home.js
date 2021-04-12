@@ -54,7 +54,10 @@ function Home() {
           )}
           <div className="wide-line"></div>
           <div className="center column">
-            <h1 className="header">CigQuit</h1>
+            <div className="header-container">
+              <h1 className="header header-a">Cig</h1>
+              <h1 className="header header-b">Quit</h1>
+            </div>
             <div className="wide-line"></div>
             <div>
               <Card className="home-card shadow border-0">

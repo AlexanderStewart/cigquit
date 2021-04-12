@@ -5,6 +5,7 @@ import { Link, withRouter, useHistory } from "react-router-dom";
 import { API_HOST } from "../constants";
 
 import "../styles/main.scss";
+import "../styles/home.scss";
 import "../styles/signup.scss";
 import "../styles/login.scss";
 
@@ -86,7 +87,7 @@ function Login() {
           </div>
           <div className="wide-line"></div>
           <div className="center">
-            <h1 className="header-signup lato-black">Login</h1>
+            <h1 className="header-signup header-a lato-black">Login</h1>
           </div>
           <div className="wide-line"></div>
           {showAlert && (

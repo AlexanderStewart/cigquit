@@ -9,6 +9,7 @@ import { API_HOST } from "../constants";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "../styles/main.scss";
+import "../styles/home.scss";
 import "../styles/profile.scss";
 import "../styles/setQuitStats.scss";
 
@@ -114,8 +115,9 @@ function SetQuitStats() {
           </div>
           <div className="wide-line"></div>
 
-          <div className="center">
-            <h1 className="header-signup lato-black">Update Quit Stats</h1>
+          <div className="center header-container">
+            <h1 className="header-signup header-a lato-black">Update&nbsp;</h1>
+            <h1 className="header-signup header-b lato-black">Quit Stats</h1>
           </div>
 
           <div className="wide-line"></div>
