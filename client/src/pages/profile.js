@@ -46,9 +46,9 @@ function Profile() {
 
       setLongQuitDate(moment(quitDate).format("dddd, MMMM Do YYYY"));
 
-      setDaysElapsed(moment().diff(moment(quitDate), "days"));
+      setDaysElapsed(moment().diff(moment(quitDate).startOf("day"), "days"));
 
-      setCigAvoided(cigCount * moment().diff(moment(quitDate), "days"));
+      setCigAvoided(cigCount * moment().diff(moment(quitDate).startOf("day"), "days"));
 
       setMoneySaved(
         "$" +
