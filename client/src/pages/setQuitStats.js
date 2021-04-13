@@ -3,7 +3,6 @@ import Axios from "axios";
 import { Form, Button, Alert } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { Link, useHistory } from "react-router-dom";
-import moment from "moment";
 import { UserContext } from "../context/userProvider";
 import { API_HOST } from "../constants";
 

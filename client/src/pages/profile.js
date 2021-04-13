@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Card, Alert } from "react-bootstrap";
 import { UserContext } from "../context/userProvider";
@@ -18,40 +18,56 @@ function Profile() {
     history.push("/");
   };
 
-  let showAlert = false;
+  const [firstName, setFirstName] = useState(null);
+  const [lastName, setLastName] = useState(null);
+  const [quitDate, setQuitDate] = useState(null);
+  const [cigCount, setCigCount] = useState(null);
+  const [cigPerPack, setCigPerPack] = useState(null);
+  const [moneyPerPack, setMoneyPerPack] = useState(null);
 
-  const firstName = context.user.firstName;
-  const lastName = context.user.lastName;
-  const quitDate = context.user.quitDate;
-  const cigCount = context.user.cigCount;
-  const cigPerPack = context.user.cigPerPack;
-  const moneyPerPack = context.user.moneyPerPack;
+  const [longQuitDate, setLongQuitDate] = useState(null);
+  const [daysElapsed, setDaysElapsed] = useState(null);
+  const [cigAvoided, setCigAvoided] = useState(null);
+  const [moneySaved, setMoneySaved] = useState(null);
 
-  let longQuitDate;
-  let daysElapsed;
-  let cigAvoided;
-  let moneySaved;
+  const [showAlert, setShowAlert] = useState(null);
 
-  if (quitDate) {
-    showAlert = false;
+  useEffect(() => {
 
-    longQuitDate = moment(quitDate).format("dddd, MMMM Do YYYY");
-    console.log("longQuitDate: " + longQuitDate);
-    daysElapsed = moment().diff(moment(quitDate), "days");
-    cigAvoided = cigCount * moment().diff(moment(quitDate), "days");
-    moneySaved =
-      "$" +
-      ((moneyPerPack / cigPerPack) * cigCount * daysElapsed)
-        .toFixed(2)
-        .toString();
-  } else {
-    showAlert = true;
+    setFirstName(context.user.firstName);
+    setLastName(context.user.lastName);
+    setQuitDate(context.user.quitDate);
+    setCigCount(context.user.cigCount);
+    setCigPerPack(context.user.cigPerPack);
+    setMoneyPerPack(context.user.moneyPerPack);
 
-    longQuitDate = "n/a";
-    daysElapsed = "n/a";
-    cigAvoided = "n/a";
-    moneySaved = "n/a";
-  }
+    if (quitDate) {
+      setShowAlert(false);
+
+      setLongQuitDate(moment(quitDate).format("dddd, MMMM Do YYYY"));
+
+      setDaysElapsed(moment().diff(moment(quitDate), "days"));
+
+      setCigAvoided(cigCount * moment().diff(moment(quitDate), "days"));
+
+      setMoneySaved(
+        "$" +
+        ((moneyPerPack / cigPerPack) * cigCount * daysElapsed)
+          .toFixed(2)
+          .toString());
+
+    } else {
+      setShowAlert(true);
+
+      setLongQuitDate("n/a");
+      setDaysElapsed("n/a");
+      setCigAvoided("n/a");
+      setMoneySaved("n/a");
+    }
+
+    console.log(".");
+
+  });
 
   return (
     <div className="Profile">
@@ -78,13 +94,17 @@ function Profile() {
             </Alert>
           )}
           <div className="column">
-            <div className="center header-container">
-              <h1 className="header-profile header-a">{firstName}&nbsp;</h1>
-              <h1 className="header-profile header-b">{lastName}</h1>
-            </div>
-            <h6 className="sub-header-profile center">
-              Good for you for quitting! Here are your quit stats:
-            </h6>
+            {!showAlert && (
+              <div className="center header-container">
+                <h1 className="header-profile header-a">{firstName}&nbsp;</h1>
+                <h1 className="header-profile header-b">{lastName}</h1>
+              </div>
+            )}
+            {!showAlert && (
+              <h6 className="sub-header-profile center">
+                Good for you for quitting! Here are your quit stats:
+              </h6>
+            )}
             <div className="wide-line"></div>
             <div className="center">
               <div className="flex-wrap">
